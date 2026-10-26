@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Emre Koruk</title>
+<meta name="description" content="Ali Emre Koruk, Ph.D. researcher in coastal hydrodynamics, explainable AI surrogates and Gulf of Mexico trend analysis at the University of Southern Mississippi.">
+<meta name="author" content="Ali Emre Koruk">
+<link rel="canonical" href="https://aliemrekoruk.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aliemrekoruk.com/">
+<meta property="og:title" content="Ali Emre Koruk · Coastal Research Portfolio">
+<meta property="og:description" content="Bonnet Carré Spillway hydrodynamics, ML surrogates, Gulf wave climatology and oyster habitat modeling.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06111b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2316449b'/%3E%3Cstop offset='.5' stop-color='%233a9586'/%3E%3Cstop offset='1' stop-color='%23fdef9a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2306111b'/%3E%3Cpath d='M8 38 Q18 26 28 38 T48 38 T68 38' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/coast-data.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<!-- ======================= NAV ======================= -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" data-go="top" aria-label="Ali Emre Koruk, back to top"><i></i>AE<span class="sig">:</span>K</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <ul id="navList">
+      <li><a href="#threads" data-go="threads">Threads</a></li>
+      <li><a href="#research" data-go="research">Research</a></li>
+      <li><a href="#experience" data-go="experience">Experience</a></li>
+      <li><a href="#publications" data-go="publications">Publications</a></li>
+      <li><a href="#field" data-go="field">Field</a></li>
+      <li><a href="#education" data-go="education">Education</a></li>
+      <li><a href="#honors" data-go="honors">Honors</a></li>
+      <li><a href="#contact" data-go="contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<!-- ======================= HERO ======================= -->
+<header class="hero" id="top">
+  <canvas id="map" aria-hidden="true"></canvas>
+  <canvas id="flow" aria-label="Animated map of the northern Gulf of Mexico with currents. Click to release a freshwater pulse."></canvas>
+  <canvas id="vec" aria-hidden="true"></canvas>
+  <canvas id="nameFx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="coords mono">
+      <span><b></b>Mississippi Sound &amp; Bight · 30.3°N 89.0°W</span>
+      <span>Ph.D. Researcher · University of Southern Mississippi</span>
+    </div>
+
+    <h1 class="name" id="name" aria-label="Ali Emre Koruk">
+      <span class="row" data-text="ALI EMRE"></span>
+      <span class="row" data-text="KORUK"></span>
+    </h1>
+
+    <div class="lede">
+      <div class="roles">
+        <span class="lbl">Coastal scientist working as a</span><br>
+        <span class="roller" id="roller">
+          <span class="on">hydrodynamic modeler</span>
+          <span>machine-learning surrogate builder</span>
+          <span>climate trend analyst</span>
+          <span>field oceanographer</span>
+          <span>teaching assistant &amp; mentor</span>
+          <span>Marine Science Scholar Fellow</span>
+        </span>
+      </div>
+      <p class="intro">I model how freshwater from the <strong>Bonnet Carré Spillway</strong> reshapes salinity, circulation and oyster habitat in the Mississippi Sound, then train <strong>explainable AI surrogates</strong> that answer in seconds what a supercomputer takes days to simulate.</p>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="#research" data-go="research">Explore the research
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn" href="#publications" data-go="publications">Publications &amp; talks</a>
+      <a class="btn" href="#contact" data-go="contact">Get in touch</a>
+    </div>
+
+    <div class="hero-foot">
+      <div class="foot-l">
+        <div class="cbar" aria-label="Salinity color scale from 0 to 35 PSU">
+          <div class="cb-top"><span class="mono">Salinity · PSU</span><span class="pulse"><i></i>freshwater pulse</span></div>
+          <div class="cb-bar"></div>
+          <div class="cb-ticks"><span style="left:0">0</span><span style="left:28.6%">10</span><span style="left:57.1%">20</span><span style="left:85.7%">30</span><span style="left:100%">35</span></div>
+          <div class="cb-ends"><span>Fresh</span><span>Salty</span></div>
+        </div>
+        <div class="hint"><kbd>click</kbd><span>the water to release a freshwater pulse and watch it follow the currents.</span></div>
+      </div>
+      <div class="socials">
+        <a href="https://scholar.google.com/citations?user=wq1Dv5YAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/aliemrekoruk/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Ali-Emre-Koeruek-2" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://orcid.org/0000-0002-8736-096X" target="_blank" rel="noopener">ORCID</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+<!-- ======================= STATS ======================= -->
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="v"><span data-count="18">18</span></div><div class="k">publications, talks &amp; posters since 2022</div></div>
+    <div class="stat"><div class="v">0.99<small>r</small></div><div class="k">peak surrogate–ocean model correlation on unseen scenarios</div></div>
+    <div class="stat"><div class="v"><span data-count="2.9" data-dec="1">2.9</span><small>TB</small></div><div class="k">model output per simulated year, compressed into ML in seconds</div></div>
+    <div class="stat"><div class="v"><span data-count="24">24</span></div><div class="k">Gulf of Mexico WW3 stations in the wave climatology study</div></div>
+    <div class="stat"><div class="v"><span data-count="42">42</span></div><div class="k">undergraduates taught across three lab sections</div></div>
+    <div class="stat"><div class="v">#1</div><div class="k">in Civil Engineering and the College of Engineering, Uludağ (2021)</div></div>
+  </div>
+</div>
+
+<main>
+<!-- ======================= THREADS ======================= -->
+<section class="block" id="threads">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Parallel threads</div>
+      <h2>Many currents,<br><em>one researcher</em></h2>
+      <p>Each column is a year. Each colored block is a line of work running that year, so taller columns mean more in parallel. Pick a year, or press play, to see what was happening at the same time.</p>
+    </div>
+    <div class="th reveal" id="th">
+      <div class="th-top"><span class="mono">Parallel lines of work per year</span><div class="th-key" id="thKey"></div></div>
+      <div class="th-cols" id="thCols" role="tablist" aria-label="Choose a year"></div>
+      <div class="th-detail" aria-live="polite">
+        <div class="th-yr"><span class="big" id="thYear">2026</span><div class="lbl"><b id="thCount">8 lines of work</b><span id="thSub">running in parallel</span></div><button class="btn" id="thPlay" type="button">Play 2016 → 2026</button></div>
+        <div class="th-cards" id="thCards"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RESEARCH ======================= -->
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Research</div>
+      <h2>Four questions<br>about <em>moving water</em></h2>
+      <p>The work connects river operations to coastal ecosystems: what a freshwater diversion does to the estuary, how quickly we can predict it, how the climate around it is shifting, and what it means for oysters.</p>
+    </div>
+
+    <div class="pillars">
+      <!-- 1 -->
+      <article class="pillar reveal">
+        <div class="txt">
+          <span class="mono tag">01 · Hydrodynamics</span>
+          <h3>Bonnet Carré Spillway &amp; the Mississippi Sound</h3>
+          <p>I build and run the <b>msbCOAWST</b> modeling framework (COAWST/ROMS) to evaluate how freshwater diversions from the Mississippi River alter <b>salinity, circulation and recovery time</b> across the Mississippi Sound and Bight. Scenario experiments replay the 2018–2020 openings and test hypothetical operations: changed timing, modified discharge thresholds, and removing or shortening the record 2019 double opening.</p>
+          <p>Funded through USCRP, USACE ERDC and GOMESA. I prepared the physical modeling contribution to the completed USCRP project final report with Dr. Mustafa Kemal Cambazoglu.</p>
+          <div class="chips"><span class="chip hot">COAWST</span><span class="chip hot">ROMS</span><span class="chip">SWAN</span><span class="chip">HPC</span><span class="chip">Twin experiments</span><span class="chip">Scenario design</span></div>
+        </div>
+        <div class="viz">
+          <div class="years" id="spillYears">
+            <div class="mono" style="color:var(--muted)">Openings simulated</div>
+            <div class="yr-row"><b>2018</b><div class="tl"><i style="left:16%;width:7%"></i><em>1 opening</em></div></div>
+            <div class="yr-row"><b>2019</b><div class="tl"><i style="left:15%;width:12%"></i><i style="left:35%;width:22%"></i><em>2 openings · record year</em></div></div>
+            <div class="yr-row"><b>2020</b><div class="tl"><i style="left:25%;width:7%"></i><em>1 opening</em></div></div>
+            <div class="months"><span></span><div><span>Jan</span><span>Mar</span><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span></div></div>
+          </div>
+          <span class="cap">Schematic · approximate timing of spillway openings</span>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="pillar reveal">
+        <div class="txt">
+          <span class="mono tag">02 · Machine learning &amp; XAI</span>
+          <h3>Surrogates that think in seconds</h3>
+          <p>With Tulane University (Dr. Omer Mermer, Prof. Ibrahim Demir), I train <b>XGBoost, Gradient Boosting and Random Forest</b> surrogates on eight msbCOAWST simulations to predict salinity in the Western Mississippi Sound. On unseen scenarios they track the ocean model at <b>r = 0.97–0.99</b>.</p>
+          <p><b>SHAP</b> explanations show what drives the response: chiefly spillway discharge over the preceding 30–60 days and time since the last opening. The next step turns this into near-real-time mitigation planning and an early-warning framework for freshwater-diversion decisions.</p>
+          <div class="chips"><span class="chip hot">XGBoost</span><span class="chip hot">SHAP</span><span class="chip">Gradient Boosting</span><span class="chip">Random Forest</span><span class="chip">Decision support</span><span class="chip">CSC 648 Deep Learning</span></div>
+        </div>
+        <div class="viz">
+          <div class="race">
+            <div class="mono" style="color:var(--muted)">Time to answer one operational question</div>
+            <div class="lane2 slow"><div class="top"><span>Ocean model (msbCOAWST on HPC)</span><span id="tSlow">0.0 days</span></div><div class="bar2"><i id="bSlow"></i></div></div>
+            <div class="lane2 fast"><div class="top"><span>ML surrogate</span><span id="tFast">0.0 s</span></div><div class="bar2"><i id="bFast"></i></div></div>
+            <button class="btn" id="raceBtn" type="button">Run both again</button>
+            <div class="rbig"><div>0.97–0.99<small>correlation with ocean model</small></div><div>~2.9 TB<small>output per simulated year</small></div></div>
+          </div>
+          <span class="cap">Illustrative race · days vs. seconds</span>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="pillar reveal">
+        <div class="txt">
+          <span class="mono tag">03 · Climate &amp; trend analysis</span>
+          <h3>Reading change in waves, wind &amp; rivers</h3>
+          <p>Multi-scale trend analysis of <b>wind-wave climatology</b> across 24 Gulf of Mexico stations from WAVEWATCH III output, published in <b>Ocean Engineering (2026)</b>. Parallel work tracks seasonal to decadal <b>discharge trends in the Mississippi and Pearl Rivers</b> using Mann–Kendall and Innovative Polygon Trend Analysis (IPTA).</p>
+          <p>This line began in Türkiye with precipitation trends in the northwest (Physics and Chemistry of the Earth, 2023) and Susurluk Basin flows, and was sharpened by advanced time-series training in spectral, wavelet and multitaper methods.</p>
+          <div class="chips"><span class="chip hot">WAVEWATCH III</span><span class="chip hot">IPTA</span><span class="chip">Mann–Kendall</span><span class="chip">Wavelets</span><span class="chip">USGS gauges</span></div>
+        </div>
+        <div class="viz"><canvas id="wavesViz"></canvas><span class="cap">Ornamental · layered wave signals</span></div>
+      </article>
+
+      <!-- 4 -->
+      <article class="pillar reveal">
+        <div class="txt">
+          <span class="mono tag">04 · Ecosystems</span>
+          <h3>Oyster habitat under shifting salinity</h3>
+          <p>Hydrodynamic outputs feed a <b>Habitat Suitability Index (HSI)</b> to show how spillway operations and riverine inflow change where oysters can thrive in the Mississippi Sound. Presented at <b>GulfCon26</b>, and grounded by summer 2026 fieldwork on the USM-ERDC Oyster Lease Project.</p>
+          <p>Co-authored work with fisheries ecologists extends the model outputs to species distribution shifts (MaxEnt) for fish and shellfish under alternative operations.</p>
+          <div class="chips"><span class="chip hot">HSI</span><span class="chip">MaxEnt</span><span class="chip">Fisheries coupling</span><span class="chip">ArcGIS / QGIS</span></div>
+        </div>
+        <div class="viz"><canvas id="hsiViz"></canvas>
+          <svg class="oysters" viewBox="0 0 420 300" aria-label="Illustration of oysters on a habitat suitability grid" role="img">
+            <defs>
+              <linearGradient id="shellG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9d0b8"/><stop offset=".45" stop-color="#9c917a"/><stop offset="1" stop-color="#4c463b"/></linearGradient>
+              <linearGradient id="shellG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8c0aa"/><stop offset=".5" stop-color="#857b67"/><stop offset="1" stop-color="#3c372f"/></linearGradient>
+              <radialGradient id="nacre" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#fdfcf8"/><stop offset=".35" stop-color="#ece9e6"/><stop offset=".65" stop-color="#cbd5dc"/><stop offset=".85" stop-color="#b4bfd6"/><stop offset="1" stop-color="#8e98a8"/></radialGradient>
+              <radialGradient id="pearl" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#f3eee6"/><stop offset=".8" stop-color="#d4cde0"/><stop offset="1" stop-color="#a99fbb"/></radialGradient>
+              <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+              <filter id="osh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#020a12" flood-opacity=".7"/></filter>
+              <path id="valve" d="M0 60 C8 30 48 6 100 3 C150 0 194 24 200 56 C206 92 170 120 120 124 C70 128 16 102 0 60Z"/>
+              <clipPath id="openClip"><path d="M0 70 C10 34 60 8 118 6 C176 4 226 34 230 70 C234 112 190 142 132 145 C74 148 10 118 0 70Z"/></clipPath>
+            </defs>
+            <g class="oy oy1" filter="url(#osh)">
+              <g transform="translate(26 92) rotate(-24) scale(.82)">
+                <use href="#valve" fill="url(#shellG2)"/>
+                <g fill="none" stroke="rgba(40,34,26,.55)" stroke-width="2.2">
+                  <use href="#valve" transform="translate(0 60) scale(.84) translate(0 -60)"/><use href="#valve" transform="translate(0 60) scale(.68) translate(0 -60)"/><use href="#valve" transform="translate(0 60) scale(.52) translate(0 -60)"/><use href="#valve" transform="translate(0 60) scale(.36) translate(0 -60)"/>
+                </g>
+                <use href="#valve" fill="none" stroke="rgba(255,250,235,.35)" stroke-width="2" stroke-dasharray="7 5"/>
+              </g>
+            </g>
+            <g class="oy oy3" filter="url(#osh)">
+              <g transform="translate(270 70) rotate(18) scale(.62)">
+                <use href="#valve" fill="url(#shellG2)"/>
+                <g fill="none" stroke="rgba(40,34,26,.55)" stroke-width="2.4">
+                  <use href="#valve" transform="translate(0 60) scale(.8) translate(0 -60)"/><use href="#valve" transform="translate(0 60) scale(.6) translate(0 -60)"/><use href="#valve" transform="translate(0 60) scale(.4) translate(0 -60)"/>
+                </g>
+              </g>
+            </g>
+            <g class="oy oy2" filter="url(#osh)">
+              <g transform="translate(120 120)">
+                <path d="M0 70 C10 34 60 8 118 6 C176 4 226 34 230 70 C234 112 190 142 132 145 C74 148 10 118 0 70Z" fill="url(#shellG)"/>
+                <path d="M0 70 C10 34 60 8 118 6 C176 4 226 34 230 70 C234 112 190 142 132 145 C74 148 10 118 0 70Z" fill="none" stroke="rgba(255,250,235,.45)" stroke-width="2.5" stroke-dasharray="9 6"/>
+                <path d="M14 70 C24 42 66 22 118 20 C170 18 212 42 216 70 C220 104 182 130 132 132 C80 134 22 108 14 70Z" fill="url(#nacre)"/>
+                <ellipse cx="156" cy="88" rx="20" ry="13" fill="#8a7bb0" opacity=".22"/>
+                <g clip-path="url(#openClip)"><rect class="sheen" x="-80" y="0" width="70" height="150" fill="url(#sheen)" transform="skewX(-18)"/></g>
+                <circle class="pearl" cx="104" cy="74" r="19" fill="url(#pearl)"/>
+                <ellipse cx="97" cy="66" rx="6" ry="4" fill="#fff" opacity=".9"/>
+              </g>
+            </g>
+          </svg>
+          <span class="cap">Illustration · oysters over a habitat suitability grid</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EXPERIENCE ======================= -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Experience</div>
+      <h2>Research &amp;<br><em>teaching</em></h2>
+      <p>Four years as a full-time graduate researcher on a federally funded modeling project, a fellowship year ahead, three lab sections taught, and a national research internship before that.</p>
+    </div>
+
+    <div class="xp">
+      <div class="job reveal">
+        <div class="when"><b>2022</b>– present</div>
+        <div class="card">
+          <h3>Ph.D. Researcher / Graduate Research Assistant</h3>
+          <div class="org">University of Southern Mississippi · Division of Marine Science · Advisor: Dr. Mustafa Kemal Cambazoglu</div>
+          <ul>
+            <li>Full-time researcher (2022–2025) on a USCRP / USACE ERDC-funded project building the msbCOAWST framework to evaluate freshwater diversion impacts on salinity, circulation and ecosystem response.</li>
+            <li>Continuing as a Ph.D. researcher supported by the 2026–2027 Marine Science Scholar Fellowship.</li>
+            <li>Design scenario-based simulations of Bonnet Carré Spillway operations; prepare figures, papers and conference materials.</li>
+            <li>Develop interpretable ML surrogates (XGBoost, Gradient Boosting, Random Forest + SHAP) emulating msbCOAWST salinity response, with Tulane University.</li>
+          </ul>
+          <details class="more"><summary>More</summary>
+            <ul>
+              <li>Prepared the physical modeling contribution to the completed USCRP project final report.</li>
+              <li>Collaborate with interdisciplinary ecology and fisheries modeling teams.</li>
+              <li>Contributed to model development across related USM physical modeling projects.</li>
+            </ul>
+          </details>
+          <div class="chips"><span class="chip">Miss Delta</span><span class="chip">Tipping Points</span><span class="chip">Wave-Wind Works</span><span class="chip">USCRP</span><span class="chip">USACE ERDC</span><span class="chip">GOMESA</span><span class="chip">Tulane University</span></div>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when"><b>Spring</b>2026 · 33 students</div>
+        <div class="card">
+          <h3>Teaching Assistant · MAR 151L H001 &amp; H002</h3>
+          <div class="org">Introduction to Ocean Science Lab · University of Southern Mississippi</div>
+          <ul>
+            <li>Co-delivered weekly labs for two honors sections on salinity gradients, wave and tide dynamics, ocean currents, plate tectonics and marine ecosystems.</li>
+            <li>Prepared instructional materials, led group discussions and graded student work.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when"><b>Fall</b>2025 · 9 students</div>
+        <div class="card">
+          <h3>Teaching Assistant · MAR 300L</h3>
+          <div class="org">Marine Science I Lab · University of Southern Mississippi</div>
+          <ul>
+            <li>Ran weekly labs across physical, chemical and geological oceanography: CTD profiling, turbidity current modeling, spectrophotometry and estuarine salt budget analysis.</li>
+            <li>Maintained lab logistics, reviewed student work and encouraged inquiry-driven, collaborative learning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when"><b>2021</b>Türkiye</div>
+        <div class="card">
+          <h3>Research Intern · TÜBİTAK</h3>
+          <div class="org">Hydraulic Engineering &amp; Environmental Systems · national, highly selective internship</div>
+          <ul>
+            <li>Contributed to hydraulic and hydrologic modeling projects.</li>
+            <li>Performed trend analyses of hydroclimatic datasets.</li>
+            <li>Assisted with technical reporting and research documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PUBLICATIONS ======================= -->
+<section class="block" id="publications">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Publications</div>
+      <h2>Papers, talks<br>&amp; <em>posters</em></h2>
+      <p>Journal articles, proceedings and presentations at AGU, AMS, Ocean Sciences, ICCE, CERF, AFS, GulfCon and Bays &amp; Bayous. Links open the paper, abstract or slides.</p>
+    </div>
+    <div class="filters" id="filters" role="tablist"></div>
+    <div class="pubs" id="pubs"></div>
+  </div>
+</section>
+
+<!-- ======================= PIPELINE ======================= -->
+<section class="block" id="pipeline">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">In the pipeline</div>
+      <h2>Manuscripts<br><em>in preparation</em></h2>
+      <p>Six first-author manuscripts linking hydrodynamic modeling, machine learning, climate trends and ecosystem response in the northern Gulf.</p>
+    </div>
+    <div class="pipe-legend mono"><span>Manuscript</span><div class="st"><span>Analysis</span><span>Drafting</span><span>Proofreading</span><span>Submission</span></div></div>
+    <div id="msList"></div>
+  </div>
+</section>
+
+<!-- ======================= FIELD ======================= -->
+<section class="block" id="field">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Field experience</div>
+      <h2>Boots wet,<br><em>data in hand</em></h2>
+      <p>Models are only as good as the water they describe. Field campaigns from research cruises to river sampling keep the work grounded.</p>
+    </div>
+    <div class="field">
+      <div class="fcard reveal"><div class="w"></div><div class="when">SUMMER 2026 · MISSISSIPPI SOUND</div><h3>USM-ERDC Oyster Lease Project</h3><p>Seasonal field sampling and environmental monitoring under Dr. Scott Milroy; contributed hydrodynamic modeling expertise to the integrated assessment of oyster habitat under varying freshwater inflow.</p></div>
+      <div class="fcard reveal"><div class="w"></div><div class="when">2023–2024 · LOUISIANA</div><h3>Pearl River Monitoring Campaign</h3><p>Seasonal sampling in the East and West Pearl Rivers, collecting water quality and hydrological data on freshwater inflow variability and estuarine response.</p></div>
+      <div class="fcard reveal"><div class="w"></div><div class="when">2023 · STENNIS SPACE CENTER</div><h3>Hydrographic Survey Training</h3><p>Technical training in autonomous hydrographic survey technologies, including UUV, AUV and UAV mapping systems for environmental monitoring and coastal data collection.</p></div>
+      <div class="fcard reveal"><div class="w"></div><div class="when">2022 · GULF OF MEXICO</div><h3>R/V Jim Franks Research Cruise</h3><p>Multidisciplinary cruise with CTD profiling and water-column measurements across the Mississippi Sound, supporting graduate-level field training.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EDUCATION ======================= -->
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Education</div>
+      <h2>From civil engineering<br>to <em>marine science</em></h2>
+      <p>Hydraulics, open-channel flow and hydrology in Türkiye; coastal ocean modeling and AI in Mississippi.</p>
+    </div>
+    <div class="edu">
+      <div class="ecard big reveal">
+        <span class="when">AUG 2022 – PRESENT</span>
+        <h3>Ph.D. in Marine Science <span style="color:var(--muted);font-weight:400">(transitioned from M.S.)</span></h3>
+        <div class="sch">University of Southern Mississippi · School of Ocean Science &amp; Engineering</div>
+        <p style="margin:0;color:var(--muted);font-size:15px">Dissertation: Hydrodynamic and Water Quality Impacts of Bonnet Carré Spillway Operations in the Mississippi Sound and Bight, conducted jointly with Tulane University. Fall 2026 coursework: CSC 648 Deep Learning.</p>
+        <div class="gpa">3.93<small> / 4.00</small></div>
+      </div>
+      <div class="ecard reveal">
+        <span class="when">2018 – 2021</span>
+        <h3>B.S. in Civil Engineering</h3>
+        <div class="sch">Uludağ University · College of Engineering</div>
+        <ul><li>Ranked 1st in department and in the College of Engineering</li><li>Top 3 university-wide, High Honor Graduate</li><li>Commencement speaker, 2021</li></ul>
+        <div class="gpa">3.88<small> / 4.00</small></div>
+      </div>
+      <div class="ecard reveal">
+        <span class="when">2021 – 2022</span>
+        <h3>M.S. Coursework, Civil Engineering (Hydraulic Sciences)</h3>
+        <div class="sch">Uludağ University</div>
+        <div class="gpa">4.00<small> / 4.00</small></div>
+      </div>
+      <div class="ecard reveal">
+        <span class="when">2019 – 2021</span>
+        <h3>Undergraduate Studies, Industrial Engineering</h3>
+        <div class="sch">Uludağ University · taken alongside Civil Engineering</div>
+      </div>
+      <div class="ecard reveal">
+        <span class="when">2016 – 2017</span>
+        <h3>Undergraduate Studies, Civil Engineering</h3>
+        <div class="sch">Bursa Technical University</div>
+        <div class="gpa">3.85<small> / 4.00</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HONORS ======================= -->
+<section class="block" id="honors">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Awards &amp; honors</div>
+      <h2>Recognition<br>&amp; <em>funding</em></h2>
+    </div>
+    <div class="honors reveal">
+      <div class="hon feat"><span class="y">2026–27</span><div><h4>Marine Science Scholar Fellowship</h4><p>Selected by faculty vote of the USM Division of Marine Science. One full academic year of funding recognizing research productivity, scholarly impact and commitment to coastal resilience research.</p></div></div>
+      <div class="hon"><span class="y">2026</span><div><h4>USM Graduate Competitive Travel Award <span class="pend">pending</span></h4><p>To present ML surrogate research at Bays and Bayous 2027, Mobile, AL.</p></div></div>
+      <div class="hon"><span class="y">2026</span><div><h4>Graduate Student Travel Award, College of Arts &amp; Sciences <span class="pend">pending</span></h4><p>To present AI-driven surrogate modeling at State of the Coast 2027, New Orleans.</p></div></div>
+      <div class="hon"><span class="y">2026</span><div><h4>Certified in Research Ethics &amp; Open Science</h4><p>BE GREAT Program (NSF-supported), University of Southern Mississippi.</p></div></div>
+      <div class="hon"><span class="y">2025</span><div><h4>AMS Student Presenter Travel Award</h4><p>American Meteorological Society, for river discharge variability research at the AMS Annual Meeting.</p></div></div>
+      <div class="hon"><span class="y">2024</span><div><h4>Graduate Student Travel Award</h4><p>USM College of Arts &amp; Sciences, for Bonnet Carré Spillway modeling research.</p></div></div>
+      <div class="hon"><span class="y">2023</span><div><h4>IEEE Ocean Engineering Society Travel Award</h4><p>Supporting attendance at the OCEANS 2023 Gulf Coast conference.</p></div></div>
+      <div class="hon"><span class="y">2022–25</span><div><h4>USCRP / GOMESA Graduate Research Funding</h4><p>U.S. Coastal Research Program and Gulf of Mexico Energy Security Act support for spillway impact research.</p></div></div>
+      <div class="hon"><span class="y">2022–25</span><div><h4>USACE ERDC Project Support</h4><p>Collaboration with the U.S. Army Engineer Research and Development Center on diversion impacts in the Mississippi Bight.</p></div></div>
+      <div class="hon"><span class="y">2021</span><div><h4>High Honor Graduate, Uludağ University</h4><p>1st in Civil Engineering and 1st in the College of Engineering.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICE ======================= -->
+<section class="block" id="service">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Leadership &amp; outreach</div>
+      <h2>Giving back<br>to the <em>community</em></h2>
+    </div>
+    <div class="two">
+      <div class="card reveal">
+        <h3>Leadership &amp; service</h3>
+        <div class="svc">
+          <div><span>2024 – PRESENT</span><b>Vice President, IEEE Oceanic Engineering Society · USM Student Branch Chapter</b><p>Coordinate technical activities and professional development; promote engagement in marine technology and ocean engineering.</p></div>
+          <div><span>2023 – 2024</span><b>Student Representative, USM Environmental Sustainability Committee</b><p>Represented graduate students in campus sustainability initiatives.</p></div>
+          <div><span>2019 – 2021</span><b>Student Representative, College of Engineering · Uludağ University</b><p>Represented the student body in college meetings and program discussions.</p></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Outreach &amp; mentoring</h3>
+        <div class="svc">
+          <div><span>2025 – PRESENT</span><b>Research Mentor, GenSea Marine Science Program · USM</b><p>Mentor high school interns on research projects built from my thesis model outputs: data interpretation, reasoning and communication.</p></div>
+          <div><span>2023, 2024</span><b>Graduate Orientation Volunteer, Student Oceanographic Society</b><p>Welcomed and guided incoming graduate students at the Division of Marine Science.</p></div>
+          <div><span>2023</span><b>STEM NOLA Volunteer</b><p>Hands-on STEM demonstrations introducing K–12 students to marine science.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SKILLS ======================= -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">Toolkit</div>
+      <h2>Technical <em>skills</em></h2>
+    </div>
+    <div class="skills reveal">
+      <div class="sk"><h4>Modeling</h4><div class="chips"><span class="chip">COAWST</span><span class="chip">ROMS</span><span class="chip">SWAN</span><span class="chip">WAVEWATCH III</span></div></div>
+      <div class="sk"><h4>Programming</h4><div class="chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">R</span><span class="chip">Fortran</span></div></div>
+      <div class="sk"><h4>ML &amp; AI</h4><div class="chips"><span class="chip">XGBoost</span><span class="chip">Gradient Boosting</span><span class="chip">Random Forest</span><span class="chip">SHAP / XAI</span><span class="chip">Deep learning</span></div></div>
+      <div class="sk"><h4>Geospatial &amp; data</h4><div class="chips"><span class="chip">ArcGIS</span><span class="chip">QGIS</span><span class="chip">HPC</span><span class="chip">Time-series analysis</span><span class="chip">Visualization</span></div></div>
+      <div class="sk"><h4>Field methods</h4><div class="chips"><span class="chip">CTD profiling</span><span class="chip">Sediment sampling</span><span class="chip">Hydrographic survey</span><span class="chip">Environmental monitoring</span></div></div>
+    </div>
+    <div class="card workshop reveal">
+      <span class="mono" style="color:var(--salt)">Workshop · July–August 2024</span>
+      <h3 style="margin-top:8px">Advanced Time Series Analysis in Ocean and Atmospheric Science</h3>
+      <div class="org">Planetary Science Institute (virtual) · Instructor: Dr. Jonathan M. Lilly</div>
+      <p style="color:var(--muted);margin:12px 0 0">Two-week graduate-level intensive on spectral analysis, wavelet transforms, multitaper methods and stochastic process modeling in Python and MATLAB, applied directly to my wind-wave climatology and river discharge trend research.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="mono" style="color:var(--salt);margin-bottom:20px">Contact</div>
+    <h2>Let's talk<br><em>coastal resilience.</em></h2>
+    <p style="color:var(--muted);max-width:56ch;font-size:17px;margin:0 0 20px">Open to collaborations on estuarine modeling, ML surrogates for environmental decision support, and coastal trend analysis.</p>
+    <div class="mail">
+      <div class="m"><code>AliEmre.Koruk@usm.edu</code><button type="button" data-copy="AliEmre.Koruk@usm.edu">Copy</button></div>
+      <div class="m"><code>aekoruk@gmail.com</code><button type="button" data-copy="aekoruk@gmail.com">Copy</button></div>
+      <div class="m"><code>+1 (504) 494-2348</code><button type="button" data-copy="+15044942348">Copy</button></div>
+    </div>
+    <div class="socials" style="margin-top:26px">
+      <a href="https://scholar.google.com/citations?user=wq1Dv5YAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/aliemrekoruk/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.researchgate.net/profile/Ali-Emre-Koeruek-2" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://orcid.org/0000-0002-8736-096X" target="_blank" rel="noopener">ORCID 0000-0002-8736-096X</a>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Ali Emre Koruk · Division of Marine Science, The University of Southern Mississippi</span><span class="mono">Hattiesburg · Stennis · New Orleans</span></div></footer>
+</body>
+</html>
